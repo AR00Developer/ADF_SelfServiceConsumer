@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SelfServiceAppModule"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="Customers"
+    ViewObjectName="oracle.summit.selfservice.model.views.CustomersVO"/>
+  <ViewUsage
+    Name="OrdersForCustomer"
+    ViewObjectName="oracle.summit.selfservice.model.views.OrdersVO"/>
+  <ViewUsage
+    Name="ItemsForOrder"
+    ViewObjectName="oracle.summit.selfservice.model.views.ItemsVO"/>
+  <ViewLinkUsage
+    Name="OrdCustomerIdFkLink"
+    ViewLinkObjectName="oracle.summit.selfservice.model.views.SOrdCustomerIdFkLink"
+    SrcViewUsageName="oracle.summit.selfservice.model.entities.SelfServiceAppModule.Customers"
+    DstViewUsageName="oracle.summit.selfservice.model.entities.SelfServiceAppModule.OrdersForCustomer"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ItemOrdIdFkLink"
+    ViewLinkObjectName="oracle.summit.selfservice.model.views.SItemOrdIdFkLink"
+    SrcViewUsageName="oracle.summit.selfservice.model.entities.SelfServiceAppModule.OrdersForCustomer"
+    DstViewUsageName="oracle.summit.selfservice.model.entities.SelfServiceAppModule.ItemsForOrder"
+    Reversed="false"/>
+</AppModule>
